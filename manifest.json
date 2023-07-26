@@ -8,15 +8,36 @@
   },
   "host_permissions": [
     "https://moodle.ufrgs.br/",
-    "https://moodle.inf.ufrgs.br/"
+    "https://moodle.inf.ufrgs.br/",
+    "https://www1.ufrgs.br/"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://moodle.ufrgs.br/*",
+        "https://moodle.ufrgs.br/*"
+      ],
+      "js": ["content_moodle.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
         "https://moodle.inf.ufrgs.br/*"
       ],
-      "js": ["content.js"],
+      "js": ["content_moodle_inf.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://webmail.inf.ufrgs.br/*"
+      ],
+      "js": ["content_webmail.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www1.ufrgs.br/*"
+      ],
+      "js": ["content_ufrgsbr.js"],
       "run_at": "document_start"
     }
   ],

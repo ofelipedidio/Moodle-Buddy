@@ -71,3 +71,15 @@ chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
         alert('[Moodle Buddy] You haven\'t set you credentials yet!');
     }
 });
+
+window.addEventListener('load', () => {
+    if (window.location.href.startsWith('https://moodle.inf.ufrgs.br/mod/resource/view.php')) {
+        window.location = document.querySelector('.resourceworkaround > a').href;
+    } else if (window.location.href.startsWith('https://moodle.inf.ufrgs.br/mod/url/view.php')) {
+        window.location = document.querySelector('.urlworkaround > a').href;
+    } else if (window.location.href.startsWith('https://moodle.ufrgs.br/mod/resource/view.php')) {
+        window.location = document.querySelector('.resourceworkaround > a').href;
+    } else if (window.location.href.startsWith('https://moodle.ufrgs.br/mod/url/view.php')) {
+        window.location = document.querySelector('.urlworkaround > a').href;
+    }
+});
